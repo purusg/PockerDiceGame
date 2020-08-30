@@ -1,0 +1,21 @@
+.board{
+    width: 55%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #ec9675;
+    border-radius: 5px !important;
+}
+
+.board-heading{
+    font-weight: 100 !important;
+    text-align: center !important;
+    color: ghostwhite;
+}
+
+.player-count{
+    width: 50% !important;
+}
+
+.sec-createplayers{
+    width: 80% !important;
+}

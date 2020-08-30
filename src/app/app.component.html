@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<div class="container-fluid" [hidden]="boardModel.PlayGame">
+  <div class="row">
+    <div class="board">
+      <h5 class="board-heading">Select the amount of players</h5>
+      <div class="row adjust-margin-top25">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+          <div class="form-group player-count align-center">
+            <input type="number" min="2" max="5" [(ngModel)]="boardModel.NumberOfPlayers" NumbersOnly maxlength="1" [ngClass]="boardModel.HasError ? 'form-control pocker-dice-theme has-error' : 'form-control pocker-dice-theme'" (change)="validatePlayers()"
+              id="numberOfPlayers">
+          </div>
+        </div>
+        <div class="col-md-5"></div>
+      </div>
+      <div class="row adjust-margin-top10">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <div class="form-group sec-createplayers align-center">
+              <button (click)="StartGame()" class="btn btn-primary-outline btn-pocker-dice-theme pocker-dice-theme text-uppercase" [disabled]="boardModel.HasError">Create Players</button>
+            </div>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+    </div>
+  </div>
+</div>
+<app-play-game [hidden]="!boardModel.PlayGame" (playAgain)="StartAgain()" [noOfPlayers]="boardModel.NumberOfPlayers"></app-play-game>

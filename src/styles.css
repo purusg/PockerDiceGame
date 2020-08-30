@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+.pocker-dice-theme{
+    background-color: transparent !important;
+    border: 1px solid ghostwhite !important;
+    color: ghostwhite !important;
+}
+.form-control:focus{
+    border: 1px solid ghostwhite !important;
+    transition: none !important;
+    box-shadow: none !important;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
+
+.adjust-margin-top25{
+    margin-top: 25px !important;
+}
+
+.adjust-margin-top10{
+    margin-top: 10px !important;
+}
+.align-center{
+    margin: 0 auto !important;
+}
+
+.text-uppercase{
+    text-transform: uppercase !important;
+}
+
+.btn-pocker-dice-theme{
+    border-radius: 15px !important;
+    width: 12rem !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.error-text{
+    color: red !important;
+}
+
+.has-error{
+    border: 1px solid red !important;
+}

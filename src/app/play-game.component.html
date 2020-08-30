@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="board" [hidden]="gameService.EndGame">
+      <div class="row adjust-margin-top25" *ngIf="!gameService.DiceRolled; else FinalMessageBlock">
+        <div class="col-md-5"></div>
+        <div class="col-md-2">
+          <div class="form-group player-count align-center">
+            <button (click)="gameService.Roll(noOfPlayers)"
+              class="btn btn-primary-outline btn-pocker-dice-theme pocker-dice-theme text-uppercase">Roll</button>
+          </div>
+        </div>
+        <div class="col-md-5"></div>
+
+      </div>
+      <ng-template #FinalMessageBlock>
+        <div class="row adjust-margin-top25">
+          <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <span class="pocker-dice-theme player-noborder">Would like to play again?</span>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4"></div>
+              <div class="col-md-4">
+                <div class="adjust-alert">
+                <button (click)="Playagain()"
+                  class="btn btn-primary-outline btn-pocker-dice-theme pocker-dice-theme text-uppercase btn-message">Yes</button>
+                <button (click)="CloseGame()"
+                  class="btn btn-primary-outline btn-pocker-dice-theme pocker-dice-theme text-uppercase btn-message">No</button>
+                </div>
+              </div>
+              <div class="col-md-4"></div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <div class="row adjust-margin-top10">
+        <div class="col-md-6" *ngFor="let player of gameService.playersArray; index as i">
+          <div class="player-board pocker-dice-theme">
+            <div class="row">
+              <div class="col-md-12" *ngIf="player.HandIndex == gameService.WinnerHandIndex; else playerblock">
+                <div class="align-center winner">
+                  <span class="badge badge-success">Winner!</span>
+                </div>
+              </div>
+              <ng-template #playerblock>
+                <div class="align-center">
+                  <span class="pocker-dice-theme player-noborder">Player {{i + 1}}</span>
+                </div>
+              </ng-template>
+              <div class="col-md-12">
+                <div class="dice-values-align">
+                  <div class="badge badge-light dicevalue"
+                    *ngFor="let diceValue of gameService.playersArray[i].DiceValues">
+                    <span>{{diceValue.CardName}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="hand-message-align align-center" *ngIf="player.Hand != ''">
+                  <span class="badge badge-light hand-message">{{player.Hand}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="board" [hidden]="!gameService.EndGame">
+      <div class="final-message">
+        <span class="pocker-dice-theme player-noborder">Thank you for playing!!!!!!</span>
+      </div>
+    </div>
+  </div>
+</div>
